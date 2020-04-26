@@ -3,12 +3,13 @@
 If you want to add a metric to observe, to use overfitting detector or to choose best model,
 all you need is to implement method `Eval` of the class `TUserDefinedPerObjectMetric`.
 These method has the following parameters:
-    * `approx` - is the vector of values of the target function for objects.
-    * `target` - is the vector of objects targets.
-    * `weight` - is the vector of objects weights.
-    * `queriesInfo` - is the vector of queries information. You should not use it if you implement PerObjectMetric.
-    * `begin` and `end` - The metric should be calculated for objects from the range `[begin, end)`.
-    * `executor` - is the element of class for parallelizing calculations. You may not use it.
+
+ * `approx` - is the vector of values of the target function for objects.
+ * `target` - is the vector of objects targets.
+ * `weight` - is the vector of objects weights.
+ * `queriesInfo` - is the vector of queries information. You should not use it if you implement PerObjectMetric.
+ * `begin` and `end` - The metric should be calculated for objects from the range `[begin, end)`.
+ * `executor` - is the element of class for parallelizing calculations. You may not use it.
 
 And then set the parameter `eval_metric` with the value of `UserPerObjMetric`.
 
@@ -38,8 +39,9 @@ TMetricHolder TUserDefinedPerObjectMetric::Eval(
 If you want to add a metric to optimize it, all you need is to implement
 methods `CalcDer` and `CalcDer2` of the class `TUserDefinedPerObjectError`:
 These methods have the following parameters:
-    * `approx` - is the value of the target function for the object.
-    * `target` - is the target for the object.
+
+ * `approx` - is the value of the target function for the object.
+ * `target` - is the target for the object.
 
 And then set the parameter `loss_function` with the value of `UserPerObjMetric`.
 
